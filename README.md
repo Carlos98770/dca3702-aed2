@@ -11,7 +11,6 @@ Este repositório contém trabalhos e exercícios desenvolvidos para a disciplin
 ---
 
 ## 📚 Projeto 1
-O projeto de análise de dados da biblioteca universitária, desenvolvido em paralelo, está disponível no seguinte repositório:
 
 [📌 Projeto Biblioteca – Análises de Empréstimos](https://github.com/Carlos98770/dca3702-aed2/tree/main/unity_1)  
 
