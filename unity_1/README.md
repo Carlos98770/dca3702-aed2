@@ -1,5 +1,7 @@
 # 📚 Projeto Biblioteca – Análises de Empréstimos
 
+**Fonte dos Dados:** Os dados utilizados neste projeto foram retirados dos **Dados Abertos da UFRN**: [https://dados.ufrn.br](https://dados.ufrn.br)
+
 👤 **Autor:**  
 Nome: Carlos Eduardo Medeiros da Silva  
 Matrícula: 20250070673
