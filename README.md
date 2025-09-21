@@ -20,4 +20,3 @@ No repositório do projeto biblioteca você encontrará:
 - Transformação em grafos bipartidos e projetados  
 - Métricas de rede e visualizações  
 - Clusters de usuários com interesses em comum  
-- Modelo de classificação de assuntos usando BERT

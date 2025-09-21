@@ -27,7 +27,7 @@ A preparação dos dados foi realizada nos notebooks **`database_create.ipynb`**
   Cruzamento das informações de empréstimos com os dados do acervo para obter detalhes sobre os livros, como título e assunto.  
 
 - **Categorização de Assuntos**  
-  Utilização de técnicas de **Processamento de Linguagem Natural (PLN)** para agrupar assuntos similares em categorias mais amplas, facilitando a análise de padrões de interesse.  
+  Utilização de técnicas de Processamento para agrupar assuntos similares em categorias mais amplas, facilitando a análise de padrões de interesse.  
 
 - **Dataset Final**  
   O resultado desta etapa é o arquivo **`dataset_FINAL_COMPLETO.csv`**, que serve como base para a criação e análise dos grafos.  
@@ -177,7 +177,7 @@ O projeto utilizou diversas bibliotecas do ecossistema Python para **processamen
 - **[Plotly](https://plotly.com/python/)** – Grafos interativos e visualização dinâmica de clusters.
 
 ### 🤖 Processamento de Linguagem Natural e Modelos
-- **[Transformers](https://huggingface.co/docs/transformers/index)** – Treinamento de modelo BERT em português para classificação de assuntos.  
+- **[Transformers](https://huggingface.co/docs/transformers/index)** – Treinamento de modelo BERT em português para classificação de assuntos, para ajudar na criação da base de dados.  
 - **[Datasets](https://huggingface.co/docs/datasets/index)** – Criação de datasets compatíveis com Hugging Face.  
 - **[Scikit-learn](https://scikit-learn.org/)** – Divisão de treino/teste e métricas (accuracy, F1).  
 
