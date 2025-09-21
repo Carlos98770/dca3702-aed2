@@ -91,10 +91,10 @@ As métricas calculadas para os grafos incluem:
 
 ### 🔹 Grafo Usuário ↔ Livro
 *(Grafo amostral de Usuário - livros)*  
-![Grafo Usuário-Livro](/imgs/grafo_user_livros_amostra.png)
+![Grafo Usuário-Livro](imgs/grafo_user_livros_amostra.png)
 
 *(Metricas do Grafo Usuário-Livro)*  
-![Metricas do Grafo Usuário-Livro](/imgs/metricas_u-l.png)
+![Metricas do Grafo Usuário-Livro](imgs/metricas_u-l.png)
 
 #### 🔹 Top Usuários por Empréstimos
 *(Emprestimos por tipo de vinculo)*  
@@ -117,7 +117,7 @@ As métricas calculadas para os grafos incluem:
 ![Grafo Usuário-Assunto](imgs/grafo_usuario_assunto.png)
 
 *(Metricas do Grafo Usuário - Categoria)*  
-![Metricas do Grafo Usuário-Livro](/imgs/metricas_u-a.png)
+![Metricas do Grafo Usuário-Livro](imgs/metricas_u-a.png)
 
 
 ### 🔹 Grafo Usuário ↔ Usuário: Relações
@@ -125,7 +125,7 @@ As métricas calculadas para os grafos incluem:
 ![Grafo Usuário-Assunto](imgs/user-user.png)
 
 *(Metricas do Grafo Usuário - Categoria)*  
-![Metricas do Grafo Usuário-Livro](/imgs/metricas_u-u.png)
+![Metricas do Grafo Usuário-Livro](imgs/metricas_u-u.png)
 
 ### 🔹 Grafo Usuário ↔ Usuário: Clusters de Interesse
 
@@ -145,16 +145,16 @@ comunidades = [c for c in comunidades if len(c) > 10]
 ###  🔹Comunidades
 
 *(Comunidade 1)*  
-![Grafo comunidade 1](/imgs/comunidade1.png)
+![Grafo comunidade 1](imgs/comunidade1.png)
 
 *(Comunidade 2)*  
-![Grafo comunidade 2](/imgs/comunidade2.png)
+![Grafo comunidade 2](imgs/comunidade2.png)
 
 *(Comunidade 3)*  
-![Grafo comunidade 3](/imgs/comunidade3.png)
+![Grafo comunidade 3](imgs/comunidade3.png)
 
 *(Comunidade 4 )*  
-![Grafo comunidade 4](/imgs/comunidade4.png)
+![Grafo comunidade 4](imgs/comunidade4.png)
 
 
 
