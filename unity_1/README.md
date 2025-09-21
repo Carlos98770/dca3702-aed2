@@ -91,41 +91,39 @@ As métricas calculadas para os grafos incluem:
 
 ### 🔹 Grafo Usuário ↔ Livro
 *(Grafo amostral de Usuário - livros)*  
-![Grafo Usuário-Livro](imgs/grafo_user_livros_amostra.png)
+<img src="imgs/grafo_user_livros_amostra.png" width="800">
 
 *(Metricas do Grafo Usuário-Livro)*  
-![Metricas do Grafo Usuário-Livro](imgs/metricas_u-l.png)
+<img src="imgs/metricas_u-l.png" width="800">
+
 
 #### 🔹 Top Usuários por Empréstimos
 *(Emprestimos por tipo de vinculo)*  
-![Top Usuários](imgs/top_emprestimos.png)
+<img src="imgs/top_emprestimos.png" width="800">
 
 *(User mais ativo: 20170021397)*
 *(Grafo do User mais ativo)*
-![User mais ativo](imgs/user_ativo.png)
+<img src="imgs/user_ativo.png" width="800">
 
 #### 🔹 Top Livros por Popularidade
 *(TOP 10 - Livros)*  
-![Top Assuntos](imgs/top10-livros.png)
-
-
-
+<img src="imgs/top10-livros.png" width="800">
 
 
 ### 🔹 Grafo Usuário ↔ Categoria (Assunto)
 *(Grafo amostral de Usuário - Categoria)*  
-![Grafo Usuário-Assunto](imgs/grafo_usuario_assunto.png)
+<img src="imgs/grafo_usuario_assunto.png" width="800">
 
 *(Metricas do Grafo Usuário - Categoria)*  
-![Metricas do Grafo Usuário-Livro](imgs/metricas_u-a.png)
+<img src="imgs/metricas_u-a.png" width="800">
 
 
 ### 🔹 Grafo Usuário ↔ Usuário: Relações
 *(Grafo amostral de Usuário - Usuario)*  
-![Grafo Usuário-Assunto](imgs/user-user.png)
+<img src="imgs/user-user.png" width="800">
 
 *(Metricas do Grafo Usuário - Categoria)*  
-![Metricas do Grafo Usuário-Livro](imgs/metricas_u-u.png)
+<img src="imgs/metricas_u-u.png" width="800">
 
 ### 🔹 Grafo Usuário ↔ Usuário: Clusters de Interesse
 
@@ -145,16 +143,16 @@ comunidades = [c for c in comunidades if len(c) > 10]
 ###  🔹Comunidades
 
 *(Comunidade 1)*  
-![Grafo comunidade 1](imgs/comunidade1.png)
+<img src="imgs/comunidade1.png" width="600">
 
 *(Comunidade 2)*  
-![Grafo comunidade 2](imgs/comunidade2.png)
+<img src="imgs/comunidade2.png" width="600">
 
 *(Comunidade 3)*  
-![Grafo comunidade 3](imgs/comunidade3.png)
+<img src="imgs/comunidade3.png" width="600">
 
 *(Comunidade 4 )*  
-![Grafo comunidade 4](imgs/comunidade4.png)
+<img src="imgs/comunidade4.png" width="600">
 
 
 
