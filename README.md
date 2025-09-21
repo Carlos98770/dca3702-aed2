@@ -7,14 +7,13 @@
 
 ## 🔎 Apresentação
 Este repositório contém trabalhos e exercícios desenvolvidos para a disciplina **Estrutura de Dados 2**.  
-O foco é aplicar conceitos de **estruturas de dados avançadas** e **algoritmos** em projetos práticos.
 
 ---
 
 ## 📚 Projeto Principal
 O projeto de análise de dados da biblioteca universitária, desenvolvido em paralelo, está disponível no seguinte repositório:
 
-[📌 Projeto Biblioteca – Análises de Empréstimos](https://github.com/seu-usuario/unity_1/)  
+[📌 Projeto Biblioteca – Análises de Empréstimos](https://github.com/Carlos98770/unity_1/)  
 
 No repositório do projeto biblioteca você encontrará:
 - Preparação e limpeza dos dados  
