@@ -9,7 +9,7 @@ Matrícula: 20250070673
 ---
 
 ## 🔎 Visão Geral
-Este projeto tem como objetivo **analisar os padrões de empréstimos em uma biblioteca universitária** utilizando **modelagem em grafos**.  
+Este projeto tem como objetivo **analisar os padrões de empréstimos em uma biblioteca universitária - SEMESTRE 2022.2** utilizando **modelagem em grafos**.  
 A análise busca identificar:
 - Usuários mais ativos
 - Livros mais populares
