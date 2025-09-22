@@ -124,7 +124,7 @@ As métricas calculadas para os grafos incluem:
 *(Grafo amostral de Usuário - Usuario)*  
 <img src="imgs/user-user.png" width="800">
 
-*(Metricas do Grafo Usuário - Categoria)*  
+*(Metricas do Grafo Usuário - Usuario)*  
 <img src="imgs/metricas_u-u.png" width="800">
 
 ### 🔹 Grafo Usuário ↔ Usuário: Clusters de Interesse
