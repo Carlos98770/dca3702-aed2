@@ -119,6 +119,9 @@ As métricas calculadas para os grafos incluem:
 *(Metricas do Grafo Usuário - Categoria)*  
 <img src="imgs/metricas_u-a.png" width="800">
 
+*TOP CATEGORIAS (ASSUNTOS)*  
+<img src="imgs/top_assuntos.png" width="800">
+
 
 ### 🔹 Grafo Usuário ↔ Usuário: Relações
 *(Grafo amostral de Usuário - Usuario)*  
