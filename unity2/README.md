@@ -4,8 +4,8 @@
 
 Este projeto tem como objetivo comparar a performance de três versões do algoritmo de Dijkstra em grafos aleatórios:
 
-1. **Dijkstra clássico** (O(V²))  
-2. **Dijkstra com Min-Heap** (O(E log V))  
+1. **Dijkstra clássico** (O(V²) + E)  
+2. **Dijkstra com Min-Heap** (O(V + E) * log V)
 3. **Função de referência do NetworkX** 
 
 A análise inclui tempo de execução e impacto ambiental (CO₂) para diferentes tamanhos de grafos, possibilitando uma avaliação prática da eficiência dos algoritmos.
