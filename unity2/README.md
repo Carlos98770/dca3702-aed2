@@ -176,17 +176,7 @@ df_start.to_csv("Starts_for_graph.csv", index=False)
 ```
 📊 Resultado: um arquivo CSV contendo todos os nós iniciais usados nos testes, garantindo consistência entre execuções e tamanhos de grafos e diferentes algoritmos.
 
-### ⚙️ 5. Fluxo Geral da Metodologia
-
-O processo completo da metodologia segue as etapas abaixo:
-
-1. **Geração:** cria e salva grafos grandes no disco (`criar_grafo`)  
-2. **Leitura:** carrega o grafo necessário no momento do experimento (`ler_grafo`)  
-3. **Conversão:** estrutura os dados conforme o padrão do professor (`parse_to_list`)  
-4. **Seleção:** escolhe aleatoriamente 5 nós iniciais por repetição (`Starts_for_graph.csv`)  
-5. **Execução:** aplica o algoritmo de **Dijkstra Clássico** e o **Dijkstra com Min-Heap** para comparação de desempenho
-
-### 🧪 6. Função de Experimento (`measure_experiment`)
+### 🧪 5. Função de Experimento (`measure_experiment`)
 
 A função `measure_experiment` é responsável por **executar os experimentos de desempenho** dos algoritmos de Dijkstra (Clássico e com Min-Heap) em grafos de diferentes tamanhos.
 
@@ -214,6 +204,78 @@ A função retorna um dicionário com os seguintes dados:
 
 #### 🧹 Gerenciamento de Memória
 Durante o processo, são utilizados comandos como `del` e `gc.collect()` para **liberar memória** de forma explícita, prevenindo sobrecarga ao lidar com grafos muito grandes.
+
+```python
+import time
+import statistics
+import gc
+
+def measure_experiment(n_runs, len_graph):
+    """
+    Executa o experimento em um mesmo grafo.
+    Para cada execução (repetição), pega os 5 nós iniciais correspondentes
+    de starts_for_graph e roda o Dijkstra para cada nó.
+    Mede o tempo total da execução da repetição e calcula estatísticas.
+    """
+    times = []
+    ctd = 0
+
+    # Lê o grafo uma vez
+    G = ler_grafo(len_graph)
+    edges_list = parse_to_list(G.edges(data=True))
+
+    del G
+    gc.collect()
+
+    print(f"🔹 Executando o experimento {n_runs} vezes, no grafo de ({len_graph} vértices)\n")
+
+    for i in range(n_runs):
+        # Para cada repetição, pega os 5 nós correspondentes
+        starts = starts_for_graph[f'grafo_{len_graph}'][i]
+
+        start_time = time.time()
+
+        for start_node in starts:
+            result = dijkstrasAlgorithm(start_node, edges_list)
+            ctd += 1
+
+        end_time = time.time()
+        elapsed = end_time - start_time
+        times.append(elapsed)
+
+        print(f"Rodada {i+1}/{n_runs}: tempo = {elapsed:.4f}s")
+
+    # Estatísticas finais
+    mean_time = statistics.mean(times)
+    std_time = statistics.stdev(times)
+
+    print(f"\n📊 Resultados Médios do Experimento (mesmo grafo, {n_runs} rodadas)")
+    print(f"Tempo médio: {mean_time:.4f}s ± {std_time:.4f}s")
+
+    del edges_list
+    gc.collect()
+
+    return {
+        "mean_time": mean_time,
+        "std_time": std_time,
+        "lista_tempos": times,
+        "interações": ctd,
+        "len_graph": len_graph
+    }
+
+
+```
+
+### ⚙️ 6. Fluxo Geral da Metodologia
+
+O processo completo da metodologia segue as etapas abaixo:
+
+1. **Geração:** cria e salva grafos grandes no disco (`criar_grafo`)  
+2. **Leitura:** carrega o grafo necessário no momento do experimento (`ler_grafo`)  
+3. **Conversão:** estrutura os dados conforme o padrão do professor (`parse_to_list`)  
+4. **Seleção:** escolhe aleatoriamente 5 nós iniciais por repetição (`Starts_for_graph.csv`)  
+5. **Execução:** aplica o algoritmo de **Dijkstra Clássico** e o **Dijkstra com Min-Heap** para comparação de desempenho
+
 
 
 
