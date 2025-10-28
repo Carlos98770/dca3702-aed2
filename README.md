@@ -19,3 +19,7 @@ No repositório do projeto biblioteca você encontrará:
 - Transformação em grafos bipartidos e projetados  
 - Métricas de rede e visualizações  
 - Clusters de usuários com interesses em comum  
+
+## Projeto 2.1 - Comparação de Performance
+
+[📌 Projeto 2.1 – Comparação de Performance](https://github.com/Carlos98770/dca3702-aed2/tree/main/unity2) 
