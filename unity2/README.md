@@ -6,7 +6,7 @@
 Nome: Carlos Eduardo Medeiros da Silva  
 Matrícula: 20250070673
 
-🎬 **Vídeo do YouTube:** [Assista aqui](https://www.youtube.com/seu_link_aqui)
+🎬 **Vídeo do YouTube:** [Assista aqui](https://youtu.be/Njtll_r1ULI)
 
 Este projeto tem como objetivo comparar a performance de três versões do algoritmo de Dijkstra em grafos aleatórios:
 
