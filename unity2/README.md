@@ -266,6 +266,15 @@ def measure_experiment(n_runs, len_graph):
 
 ```
 
+### Para implementação com o networkX:
+
+ - Substituímos a implementação manual por:
+ ```python
+distances, paths = nx.single_source_dijkstra(G, source=start_node, weight='weight')
+ ```
+ - O NetworkX já usa Min-Heap internamente, garantindo eficiência mesmo em grafos grandes.
+ - Não se faz necessário o uso do `parse_list().`
+
 ### ⚙️ 6. Fluxo Geral da Metodologia
 
 O processo completo da metodologia segue as etapas abaixo:
@@ -289,24 +298,27 @@ Após a execução completa dos algoritmos, espera-se observar diferenças clara
 
 ---
 
-### 1️⃣ Dijkstra Clássico (O(V² + E))  
+### 1 Dijkstra Clássico (O(V² + E))  
 
-![Dijkstra Clássico](graficos/dijkstra_classico.png)  
-*Figura: Tempo médio de execução do Dijkstra Clássico para diferentes tamanhos de grafos.*
+![Dijkstra Clássico](graficos/Resultados_dijkstra_classico.png)  
 
----
-
-### 2️⃣ Dijkstra com Min-Heap (O(V + E) * log V)  
-
-![Dijkstra Min-Heap](graficos/dijkstra_min_heap.png)  
-*Figura: Tempo médio de execução do Dijkstra com Min-Heap para diferentes tamanhos de grafos.*
 
 ---
 
-### 3️⃣ NetworkX  
+### 2 Dijkstra com Min-Heap (O(V + E) * log V)  
 
-![NetworkX](graficos/networkx.png)  
-*Figura: Tempo médio de execução da função de referência do NetworkX para diferentes tamanhos de grafos.*
+![Dijkstra Min-Heap](graficos/Resultado_Dijstrka_min_heap.png)  
 
 ---
 
+### 3 NetworkX  
+
+![NetworkX](graficos/Resultado_Dijstrka_networkX.png)  
+
+
+---
+
+### 4 Comparativo Geral
+
+
+![Comparativo](graficos/comparison.png)  
