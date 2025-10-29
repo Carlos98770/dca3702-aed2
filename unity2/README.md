@@ -2,6 +2,11 @@
 
 ## Objetivos do Projeto
 
+👤 **Autor:**  
+Nome: Carlos Eduardo Medeiros da Silva  
+Matrícula: 20250070673
+
+
 Este projeto tem como objetivo comparar a performance de três versões do algoritmo de Dijkstra em grafos aleatórios:
 
 1. **Dijkstra clássico** (O(V²) + E)  
