@@ -37,7 +37,7 @@ A análise inclui tempo de execução, para diferentes tamanhos de grafos, possi
 - Grafos aleatórios do tipo `nx.gnp_random_graph(n, p=0.01)`
 - Pesos inteiros aleatórios entre 1 e 10
 - 5 nós aleatórios por grafo
-- 15 repetições por configuração]
+- 15 repetições por configuração
 - Sementes fixas para reprodutibilidade
 
 ### Métricas Coletadas
@@ -62,22 +62,15 @@ unity2/
 
 ## 📊 Métricas e Estatística
 
-Nesta etapa, você vai transformar os dados brutos coletados (tempos e emissões de CO₂ de cada execução) em informações estatisticamente interpretáveis.  
-O objetivo é comparar o desempenho dos algoritmos a partir das médias e desvios-padrão das execuções.
 
-Para cada par (**tamanho do grafo**, **algoritmo**), calcule:
+
+Para cada par (**tamanho do grafo**, **algoritmo**):
 
 | Métrica        | Símbolo       | Descrição |
 |----------------|---------------|-----------|
 | Média          | $\bar{x}$   | Tempo médio das execuções |
 | Desvio-padrão  | $s$         | Mede a variação dos resultados em torno da média |
 
-Para cada algoritmo e tamanho de grafo, plote:
-
-- **Eixo X:** número de nós do grafo  
-- **Eixo Y:** tempo médio  
-- Uma linha para cada algoritmo  
-- Barras verticais indicando a variação (\(s\))  
 
 ## 🧠 Metodologia
 
