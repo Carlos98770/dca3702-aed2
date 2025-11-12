@@ -256,6 +256,176 @@ Além disso, a biblioteca **OSMnx** apresenta limitações pontuais — podendo 
 
 ---
 
+### 🗺️ Visualizações
+
+As visualizações foram geradas automaticamente a partir de três funções principais, responsáveis por criar e salvar os mapas das cidades, das rotas A* e da Árvore Geradora Mínima (MST).  
+Todas as imagens resultantes são exportadas em **formato `.png`** e armazenadas na pasta **`/maps`** (criada automaticamente pelo código).
+
+### 🔹 `plot_graph_with_pois(G_undirected, POIs_nodes, place)`
+
+```python
+def plot_graph_with_pois(G_undirected, POIs_nodes, place, output_dir="../maps"):
+    # Garante que a pasta de saída exista
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Nome do arquivo (usa o nome da cidade, sem espaços)
+    filename = f"{place.replace(',', '').replace(' ', '_')}.png"
+    filepath = os.path.join(output_dir, filename)
+
+    # Plotar o grafo base
+    fig, ax = ox.plot_graph(
+        G_undirected,
+        node_size=0,
+        edge_color="gray",
+        edge_linewidth=0.5,
+        show=False,
+        close=False
+    )
+    
+    # Plotar os POIs (por exemplo, pontos de recarga) em azul
+    poi_x = [G_undirected.nodes[n]['x'] for n in POIs_nodes]
+    poi_y = [G_undirected.nodes[n]['y'] for n in POIs_nodes]
+    ax.scatter(poi_x, poi_y, c='blue', s=80, zorder=5, edgecolor='black')
+
+    # Título e salvamento
+    plt.title(f"POIs em {place}", fontsize=14)
+    plt.tight_layout()
+    plt.savefig(filepath, dpi=300, bbox_inches="tight")
+    plt.close(fig)  # Fecha a figura para liberar memória
+
+    print(f"✅ Mapa salvo em: {filepath}")
+```
+Esta função plota o **grafo viário base** da cidade e destaca os **POIs (Pontos de Interesse)** em azul.  
+Ela utiliza o grafo não direcionado obtido via OSMnx e adiciona os nós correspondentes aos POIs com borda preta para melhor contraste.  
+O mapa é salvo como uma imagem PNG nomeada de acordo com a cidade (`<cidade>.png`).
+
+📁 **Saída:** `../maps/<nome_da_cidade>.png`
+
+---
+
+### 🔹 `plot_paths_astar(G_undirected, G_interest, POIs_nodes, place)`
+
+```python
+def plot_paths_astar(G_undirected, G_interest, POIs_nodes, place="cidade", output_dir="../maps"):
+    # Garante que a pasta exista
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Gera o nome do arquivo (sem espaços nem vírgulas)
+    filename = f"{place.replace(',', '').replace(' ', '_')}_astar_paths.png"
+    filepath = os.path.join(output_dir, filename)
+
+    # Cria o mapa base
+    fig, ax = ox.plot_graph(
+        G_undirected,
+        show=False,
+        close=False,
+        node_size=0,
+        edge_color="lightgray"
+    )
+
+    # Coordenadas dos POIs
+    poi_x = [G_undirected.nodes[n]['x'] for n in POIs_nodes]
+    poi_y = [G_undirected.nodes[n]['y'] for n in POIs_nodes]
+    ax.scatter(poi_x, poi_y, c="blue", s=40, label="POIs (Pontos de Interesse)")
+
+    # Desenha as rotas A* conectando os POIs
+    for u, v, data in G_interest.edges(data=True):
+        route = data.get("path")
+        if route:
+            ox.plot_graph_route(
+                G_undirected,
+                route,
+                route_linewidth=2,
+                route_alpha=0.6,
+                route_color="red",
+                orig_dest_size=0,
+                ax=ax,
+                show=False,
+                close=False
+            )
+
+    # Título e legenda
+    ax.legend()
+    plt.title(f"Rotas A* entre Pontos de Interesse (POIs) - {place}", fontsize=12)
+    plt.tight_layout()
+
+    # Salva o gráfico
+    plt.savefig(filepath, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+    print(f"✅ Mapa de rotas A* salvo em: {filepath}")
+
+```
+Responsável por visualizar as **rotas A\*** entre os POIs.  
+Cada rota representa o caminho mínimo encontrado sobre o grafo real da cidade, considerando as vias existentes.  
+As rotas são plotadas em **vermelho**, enquanto os POIs aparecem em **azul**.  
+Essa função permite observar a interligação real entre os pontos de interesse com base na malha urbana.
+
+📁 **Saída:** `../maps/<nome_da_cidade>_astar_paths.png`
+
+---
+
+### 🔹 `show_mst(mst_edges, G_undirected, POIs_nodes, place)`
+```python
+def show_mst(mst_edges, G_undirected, POIs_nodes, place, output_dir="../maps"):
+    # Garante que a pasta de saída exista
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Nome do arquivo (sem espaços nem vírgulas)
+    filename = f"{place.replace(',', '').replace(' ', '_')}_mst.png"
+    filepath = os.path.join(output_dir, filename)
+
+    mst_routes = []
+    for (u, v, d) in mst_edges:
+        route = nx.shortest_path(G_undirected, u, v, weight='length')
+        mst_routes.append(route)
+    
+    # Plotar o grafo base
+    fig, ax = ox.plot_graph(
+        G_undirected, 
+        node_size=0, 
+        edge_color="gray", 
+        edge_linewidth=0.5, 
+        show=False, 
+        close=False
+    )
+    
+    # Destacar as rotas do MST em vermelho
+    for route in mst_routes:
+        x = [G_undirected.nodes[n]['x'] for n in route]
+        y = [G_undirected.nodes[n]['y'] for n in route]
+        ax.plot(x, y, color='red', linewidth=2, zorder=4)
+    
+    # Plotar também os POIs (hospitais, atrações etc.) em azul
+    poi_x = [G_undirected.nodes[n]['x'] for n in POIs_nodes]
+    poi_y = [G_undirected.nodes[n]['y'] for n in POIs_nodes]
+    ax.scatter(poi_x, poi_y, c='blue', s=80, zorder=5, edgecolor='black', label='POIs')
+    
+    plt.title(f"MST entre POIs (Atrações Turísticas) em {place}", fontsize=13)
+    plt.legend()
+    plt.tight_layout()
+
+    # Salvar figura em PNG
+    plt.savefig(filepath, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+    print(f"✅ Mapa MST salvo em: {filepath}")
+
+```
+Esta função plota a **Árvore Geradora Mínima (MST)** sobre o grafo da cidade.  
+As conexões da MST são destacadas em **vermelho**, representando o **“esqueleto mínimo”** que conecta todos os POIs com o menor comprimento total possível.  
+Os POIs são novamente mostrados em azul.  
+Essa visualização ajuda a comparar o traçado mínimo obtido teoricamente com a rede urbana real.
+
+📁 **Saída:** `../maps/<nome_da_cidade>_mst.png`
+
+---
+
+Essas três visualizações permitem observar **(1)** os POIs distribuídos na cidade, **(2)** as rotas reais calculadas pelo algoritmo A*, e **(3)** a estrutura mínima de conexão entre eles via MST.  
+Com isso, é possível comparar **eficiência viária**, **dispersão dos pontos** e **estrutura urbana** de forma visual e quantitativa.
+
+O ChatGPT está se
+
 
 
 ## 🧩 Análise Crítica
