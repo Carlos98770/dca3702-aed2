@@ -4,6 +4,11 @@
 Nome: Carlos Eduardo Medeiros da Silva
 Matrícula: 20250070673
 
+```sh
+Notebook-base I: notebooks/Astar.ipnyb
+Notebook-base II: notebooks/kruskal_natal.ipynb
+```
+
 ## 🎯 Objetivo
 Este projeto tem como objetivo **analisar a conectividade entre atrações turísticas** nas **capitais do Nordeste do Brasil**, utilizando dados do **OpenStreetMap (OSM)**.  
 A análise consiste em:
