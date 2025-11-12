@@ -433,6 +433,7 @@ Essa visualização ajuda a comparar o traçado mínimo obtido teoricamente com 
 Essas três visualizações permitem observar **(1)** os POIs distribuídos na cidade, **(2)** as rotas reais calculadas pelo algoritmo A*, e **(3)** a estrutura mínima de conexão entre eles via MST.  
 Com isso, é possível comparar **eficiência viária**, **dispersão dos pontos** e **estrutura urbana** de forma visual e quantitativa.
 
+
 ## 🧩 Análise Crítica
 
 A variação no comprimento total das MSTs entre as cidades está diretamente relacionada à distribuição espacial e quantidade de POIs. Cidades mais extensas ou com pontos de interesse mais dispersos — como Salvador e São Luís — tendem a exigir maiores comprimentos de rede para conectá-los, refletindo maior área urbana e complexidade viária. Em contrapartida, cidades menores ou com POIs concentrados — como Teresina e Aracaju — apresentam MSTs mais curtas, indicando uma estrutura urbana mais densa e conectada.
