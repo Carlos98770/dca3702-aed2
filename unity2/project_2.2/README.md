@@ -4,6 +4,10 @@
 Nome: Carlos Eduardo Medeiros da Silva
 Matrícula: 20250070673
 
+🎬 **Vídeo do YouTube:** [Assista aqui](https://youtu.be/rThyMfwVY7k)
+
+
+
 ```sh
 Notebook-base I: notebooks/Astar.ipnyb
 Notebook-base II: notebooks/kruskal_natal.ipynb
