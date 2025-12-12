@@ -27,3 +27,7 @@ No repositório do projeto biblioteca você encontrará:
 ## Projeto 2.2 - 🧭 Rotas Turísticas nas Capitais do Nordeste Brasileiro com OSMnx, A* e MST
 
 [📌 Projeto 2.2 – Rotas Turísticas nas Capitais do Nordeste Brasileiro com OSMnx, A* e MST](https://github.com/Carlos98770/dca3702-aed2/tree/main/unity2/project_2.2) 
+
+## Projeto 3 - Grafos, Estruturas Complexas e Métricas de Avaliação
+
+[📌 Projeto 3 – Grafos, Estruturas Complexas e Métricas de Avaliação](https://github.com/Carlos98770/dca3702-aed2/tree/main/unity_3/)
