@@ -388,5 +388,5 @@ Esta visualização destaca a estrutura hierárquica da rede através da decompo
 
 Para explorar a rede dinamicamente, navegar pelos nós e visualizar as conexões em detalhes, acesse a versão interativa do grafo no link abaixo:
 
-🚀 **[Clique aqui para acessar o Grafo Online](INSIRA_SEU_LINK_AQUI)**
+🚀 **[Clique aqui para acessar o Grafo Online](https://carlos98770.github.io/dca3702-aed2/)**
 
