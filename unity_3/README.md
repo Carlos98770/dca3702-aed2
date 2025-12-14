@@ -332,7 +332,7 @@ Para a análise topológica, a rede construída foi exportada para o software **
 
 ---
 
-## 📍 Requisito #01: Análise de Centralidades
+## 📍 Análise de Centralidades
 
 Para estas visualizações, foram mantidas as seguintes configurações padrões para permitir comparabilidade:
 * **Layout:** ForceAtlas 2 (para evidenciar a formação de clusters).
@@ -344,6 +344,10 @@ Para estas visualizações, foram mantidas as seguintes configurações padrões
 Esta métrica avalia a velocidade com que um nó consegue alcançar todos os outros nós da rede.
 
 ![Closeness Centrality](imgs/Closeness.png)
+**Legenda da Escala de Cores (Normalizada):**
+| 🟦 Baixa Proximidade | 🟨 Média | 🟥 Alta Proximidade |
+| :---: | :---: | :---: |
+| **0.0** | *Transição* | **1.0** |
 
 > **Análise:**
 > Observamos que os nós com cores mais quentes (vermelhos/laranjas) estão situados no centro geométrico do grafo. Estes nós possuem a menor distância média para o restante da rede, indicando que são os pontos mais eficientes para a **disseminação rápida de informações**. Os nós periféricos (em azul) dependem de múltiplos saltos para acessar o lado oposto da rede.
@@ -353,7 +357,10 @@ Esta métrica avalia a velocidade com que um nó consegue alcançar todos os out
 Esta métrica quantifica a frequência com que um nó atua como "ponte" no caminho mais curto entre dois outros nós.
 
 ![Betweenness Centrality](imgs/Betweenness.png)
-
+**Legenda da Escala de Cores (Contagem de Caminhos):**
+| 🟦 Baixa Intermediação | 🟨 Média | 🟥 Alta Intermediação |
+| :---: | :---: | :---: |
+| **0** | *Transição* | **56.191** |
 > **Análise:**
 > Diferente da proximidade, aqui destacam-se nós que funcionam como **pontos de controle ou gargalos (bottlenecks)**. É possível visualizar nós vermelhos que conectam clusters distintos (comunidades). A remoção destes nós críticos causaria a maior fragmentação possível na rede, isolando grupos de páginas inteiros.
 
@@ -362,13 +369,17 @@ Esta métrica quantifica a frequência com que um nó atua como "ponte" no camin
 Esta métrica mede a influência de um nó baseada na qualidade de suas conexões ("diga-me com quem andas e te direi quem és").
 
 ![Eigenvector Centrality](imgs/Eigenvector.png)
+**Legenda da Escala de Cores (Normalizada):**
+| 🟦 Baixa Influência | 🟨 Média | 🟥 Alta Influência |
+| :---: | :---: | :---: |
+| **0.0** | *Transição* | **1.0** |
 
 > **Análise:**
 > As cores quentes concentram-se nos grupos mais densamente conectados. Um nó aqui torna-se vermelho não apenas por ter muitos vizinhos, mas por estar conectado a vizinhos que também são altamente conectados. Isso evidencia o **núcleo de influência e prestígio** da rede, onde a informação circula com maior intensidade.
 
 ---
 
-## 🧅 Requisito #02: Estrutura K-Core e K-Shell
+## 🧅 Estrutura K-Core e K-Shell
 
 Esta visualização destaca a estrutura hierárquica da rede através da decomposição em camadas (*shells*) e núcleo (*core*).
 * **Configuração:** Tamanho proporcional ao Grau (Degree).
@@ -378,11 +389,30 @@ Esta visualização destaca a estrutura hierárquica da rede através da decompo
 > **Análise da Decomposição:**
 > A imagem utiliza cores distintas para evidenciar a resiliência da rede:
 >
-> * 🔴 **Vermelho (K-Core Máximo):** Representa o núcleo mais denso da rede. Este subgrafo contém os nós que estão conectados a pelo menos *k* outros nós dentro do mesmo grupo. É a "espinha dorsal" da estrutura, sendo extremamente difícil de fragmentar.
-> * 🔵 **Azul (K-Shell Intermediário):** Representa a camada periférica robusta. Estes nós possuem alta conectividade com o núcleo, servindo como zona de transição e proteção para o centro da rede.
+> * 🔴 **Vermelho (K-Core Máximo):** Representa o núcleo mais denso da rede. Este subgrafo contém os nós que estão conectados a pelo menos *k* outros nós dentro do mesmo grupo. É a "espinha dorsal" da estrutura, sendo extremamente difícil de fragmentar. 10-core
+> * 🔵 **Azul (K-Shell Intermediário):** Representa a camada periférica robusta. Estes nós possuem alta conectividade com o núcleo, servindo como zona de transição e proteção para o centro da rede. 7-shell
 > * ⚫ **Cinza:** Nós periféricos ou de baixa conectividade estrutural.
 >
 > A topologia sugere que a rede possui um centro de gravidade bem definido, onde a informação tende a ficar retida ou circular intensamente antes de se espalhar para as camadas externas.
+
+
+## 🧩 Detecção de Comunidades e Modularidade
+
+Além das métricas de centralidade, foi realizada uma análise de **Estrutura de Comunidades** para identificar agrupamentos naturais dentro da rede. Utilizamos o algoritmo de *Modularidade* (baseado no método de Louvain), que particiona o grafo em grupos onde a densidade de conexões internas é muito maior do que as conexões entre grupos diferentes.
+
+![Detecção de Comunidades](imgs/community.png)
+
+
+### 🔍 Correlação com as SEEDs
+A visualização acima, onde cada cor representa uma comunidade distinta, valida a estratégia de construção do grafo. É possível observar claramente **5 grandes clusters** principais, que correspondem diretamente às 5 páginas sementes (*Seeds*) utilizadas na coleta:
+
+1.  **Cluster Esportivo** (Ex: Cristiano Ronaldo)
+2.  **Cluster Geográfico** (Ex: Monte Everest)
+3.  **Cluster Tecnológico** (Ex: Python)
+4.  **Cluster Histórico** (Ex: Revolução Francesa)
+5.  **Cluster Científico** (Ex: Albert Einstein)
+
+A alta modularidade prova que, apesar de existirem conexões transversais (interdisciplinares), os tópicos mantiveram sua integridade temática durante a expansão da busca em largura.
 
 ## 🌐 Visualização Interativa (Deploy)
 
