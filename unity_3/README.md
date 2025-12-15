@@ -127,7 +127,7 @@ def get_best_links_fast(page_obj, max_links):
         score = 0
         
         # A: Frequência no texto principal (Relevância bruta)
-        # Limitamos a contagem a 50 para evitar distorções em textos gigantes
+        # Limita a contagem a 50 para evitar distorções em textos gigantes
         count = content_lower.count(link_lower)
         score += min(count, 50)
         
@@ -185,7 +185,6 @@ def explore_seed(start_page):
         print(f"{prefix}➤ [L{layer}] Acessando: {page_title}...", end=" ", flush=True)
 
         try:
-            # O gargalo é AQUI. Fazemos apenas 1 request por nó.
             wiki_obj = wikipedia.page(page_title, auto_suggest=False)
             print("OK.")
         
@@ -213,7 +212,7 @@ def explore_seed(start_page):
         if layer == MAX_DEPTH:
             continue
 
-        # --- APLICA A NOVA HEURÍSTICA ---
+        # --- APLICA A HEURÍSTICA ---
         # Passamos o objeto já baixado (wiki_obj)
         best_links = get_best_links_fast(wiki_obj, MAX_LINKS_PER_PAGE)
 
@@ -296,7 +295,7 @@ A construção de redes a partir de hiperlinks da Wikipedia apresenta um desafio
 
 Para cumprir o requisito de explorar a rede até **altura < 3** de forma eficiente, foi implementada uma arquitetura baseada em **Busca em Largura Limitada com Heurística de Relevância Local**.
 
-### 🚀 1. Heurística de Otimização: "Zero-Request Scoring"
+### 🚀 1. Heurística de Otimização
 
 A principal estratégia adotada foi a criação de uma função de pontuação (`get_best_links_fast`) que seleciona os links mais promissores **sem realizar requisições HTTP adicionais**. A relevância de um link candidato é calculada analisando apenas o conteúdo da página pai já carregada na memória.
 
