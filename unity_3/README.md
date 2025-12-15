@@ -65,7 +65,7 @@ SEEDS = [
 ]
 
 MAX_DEPTH = 2
-MAX_LINKS_PER_PAGE = 30  # Pega os top 15 links mais relevantes
+MAX_LINKS_PER_PAGE = 30  # Pega os top 30 links mais relevantes
 MIN_CONTENT_LENGTH = 500 # Ignora páginas muito curtas (stubs)
 
 # Palavras/Prefixos para ignorar
